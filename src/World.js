@@ -73,6 +73,11 @@ export default class World {
       // add name
       newIslandElement.innerHTML = newIsland.name;
 
+      // remove island on click
+      newIslandElement.addEventListener("click", () => {
+        newIslandElement.remove();
+      });
+
       document.querySelector("#app").appendChild(newIslandElement);
 
       console.log(newIslandElement);
