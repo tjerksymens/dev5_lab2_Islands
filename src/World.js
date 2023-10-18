@@ -16,13 +16,11 @@ export default class World {
       //save btn
       document.querySelector("#btnSave").addEventListener("click", () => {
         this.save();
-        console.log("save");
       });
 
       //load btn
       document.querySelector("#btnLoad").addEventListener("click", () => {
         this.load();
-        console.log("load");
       });
     }
   
@@ -33,8 +31,6 @@ export default class World {
         const islandInfo = {
           name: island.innerHTML,
           color: island.style.backgroundColor,
-          x: island.style.left,
-          y: island.style.top
         };
         this.islands.push(islandInfo);
       });
@@ -44,7 +40,11 @@ export default class World {
   
     load() {
       // load islands from localstorage into array
+      const allIslands = JSON.parse(localStorage.getItem("islands"));
       // loop over the array and addIslands()
+      allIslands.forEach((island) => {
+        this.addIsland(island);
+      });
     }
   
     getCoordinates() {
