@@ -29,6 +29,17 @@ export default class World {
     save() {
       // save array islands to localstorage as string
       // loop over all this.islands and save the names
+      document.querySelectorAll(".island").forEach((island) => {
+        const islandInfo = {
+          name: island.innerHTML,
+          color: island.style.backgroundColor,
+          x: island.style.left,
+          y: island.style.top
+        };
+        this.islands.push(islandInfo);
+      });
+      localStorage.setItem("islands", JSON.stringify(this.islands));
+      console.log(this.islands);
     }
   
     load() {
