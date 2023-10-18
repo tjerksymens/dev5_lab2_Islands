@@ -40,8 +40,8 @@ export default class World {
       // return coordinates within the screen at random, feel free to change it up!
       let randomSign = Math.random() < 0.5 ? -1 : 1;
       return {
-        x: ((Math.random() * window.innerWidth) / 2) * randomSign,
-        y: ((Math.random() * window.innerHeight) / 2) * randomSign
+        x: ((Math.random() * window.innerWidth) / 2),
+        y: ((Math.random() * window.innerHeight) / 2)
       };
     }
   
@@ -63,6 +63,8 @@ export default class World {
       newIslandElement.innerHTML = newIsland.name;
 
       document.querySelector("#app").appendChild(newIslandElement);
+
+      console.log(newIslandElement);
     }
   
     moveIsland(island) {
