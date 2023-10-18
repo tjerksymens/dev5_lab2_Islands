@@ -6,6 +6,23 @@ export default class World {
   
     hookEvents() {
       // hook events like clicking buttons to a specific function
+      //add island btn
+      document.querySelector("#btnAddIsland").addEventListener("click", () => {
+        this.addIsland();
+        console.log("add island");
+      });
+
+      //save btn
+      document.querySelector("#btnSave").addEventListener("click", () => {
+        this.save();
+        console.log("save");
+      });
+
+      //load btn
+      document.querySelector("#btnLoad").addEventListener("click", () => {
+        this.load();
+        console.log("load");
+      });
     }
   
     save() {
@@ -35,4 +52,3 @@ export default class World {
       // this might be a good point to animate the islands with JS Animations API
     }
   }
-  
