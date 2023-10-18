@@ -1,3 +1,5 @@
+import Island from "./Island.js";
+
 export default class World {
     constructor() {
       this.islands = []; // a good place to keep track of your islands
@@ -9,7 +11,6 @@ export default class World {
       //add island btn
       document.querySelector("#btnAddIsland").addEventListener("click", () => {
         this.addIsland();
-        console.log("add island");
       });
 
       //save btn
@@ -46,6 +47,22 @@ export default class World {
   
     addIsland(island) {
       // add the islands to the DOM
+      let newIsland = new Island();
+      const newIslandElement = document.createElement("div");
+      newIslandElement.classList.add("island");
+
+      // get coordinates
+      const coordinates = this.getCoordinates();
+      newIslandElement.style.left = coordinates.x + "px";
+      newIslandElement.style.top = coordinates.y + "px";
+
+      // add color
+      newIslandElement.style.backgroundColor = newIsland.color;
+
+      // add name
+      newIslandElement.innerHTML = newIsland.name;
+
+      document.querySelector("#app").appendChild(newIslandElement);
     }
   
     moveIsland(island) {
