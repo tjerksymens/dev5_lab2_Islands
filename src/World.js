@@ -56,7 +56,7 @@ export default class World {
       };
     }
   
-    addIsland(island) {
+    addIsland(island = null) {
       // add the islands to the DOM
       let newIsland = new Island();
       const newIslandElement = document.createElement("div");
@@ -68,10 +68,10 @@ export default class World {
       newIslandElement.style.top = coordinates.y + "px";
 
       // add color
-      newIslandElement.style.backgroundColor = newIsland.color;
+      newIslandElement.style.backgroundColor = island ? island.color : newIsland.color;
 
       // add name
-      newIslandElement.innerHTML = newIsland.name;
+      newIslandElement.innerHTML = island ? island.name : newIsland.name;
 
       // remove island on click
       newIslandElement.addEventListener("click", () => {
